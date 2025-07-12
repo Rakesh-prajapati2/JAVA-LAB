@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Calculator {
+
+    // First add method: adds two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Second add method: adds three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Third add method: adds two doubles
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    // Main method to test method overloading
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Calculator calc = new Calculator();
+
+        // Testing first method: two integers
+        System.out.print("Enter two integers: ");
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        int sum1 = calc.add(x, y);
+        System.out.println("Sum of two integers: " + sum1);
+
+        // Testing second method: three integers
+        System.out.print("Enter three integers: ");
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+        int c = scanner.nextInt();
+        int sum2 = calc.add(a, b, c);
+        System.out.println("Sum of three integers: " + sum2);
+
+        // Testing third method: two doubles
+        System.out.print("Enter two decimal numbers: ");
+        double d1 = scanner.nextDouble();
+        double d2 = scanner.nextDouble();
+        double sum3 = calc.add(d1, d2);
+        System.out.println("Sum of two doubles: " + sum3);
+
+        scanner.close();
+    }
+}
