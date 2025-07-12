@@ -1,0 +1,13 @@
+package com.anudip.learning;
+
+public class Person {
+    // Member variables initialized during declaration
+    String name = "Rakesh";
+    int age = 25;
+    int salary = 30000;
+
+    // Main method
+    public static void main(String[] args) {
+        System.out.println("Test Successful");
+    }
+}
