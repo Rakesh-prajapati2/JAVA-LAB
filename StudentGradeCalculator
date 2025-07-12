@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] marks = new int[5];
+        int total = 0;
+        double average;
+        String grade;
+
+        // Input marks for 5 subjects
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Enter marks for Subject " + (i + 1) + " (out of 100): ");
+            marks[i] = scanner.nextInt();
+
+            // Validate input
+            if (marks[i] < 0 || marks[i] > 100) {
+                System.out.println("Invalid input! Marks should be between 0 and 100.");
+                i--; // Ask for the same subject again
+                continue;
+            }
+
+            total += marks[i];
+        }
+
+        // Calculate average
+        average = total / 5.0;
+
+        // Determine grade
+        if (average > 90) {
+            grade = "Ex";
+        } else if (average > 80) {
+            grade = "A";
+        } else if (average > 60) {
+            grade = "B";
+        } else if (average >= 40) {
+            grade = "C";
+        } else {
+            grade = "F";
+        }
+
+        // Display result
+        System.out.println("\n--- Result ---");
+        System.out.println("Total Marks: " + total + "/500");
+        System.out.printf("Average: %.2f%%\n", average);
+        System.out.println("Grade: " + grade);
+
+        scanner.close();
+    }
+}
