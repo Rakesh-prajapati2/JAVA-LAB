@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class Car {
+    // Attributes
+    private String make;
+    private String model;
+    private short year;
+    private int price;
+
+    // Constructor to initialize all attributes
+    public Car(String make, String model, short year, int price) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
+
+    // Method to display car details
+    public void displayDetails() {
+        System.out.println("\n--- Car Details ---");
+        System.out.println("Make  : " + make);
+        System.out.println("Model : " + model);
+        System.out.println("Year  : " + year);
+        System.out.println("Price : ₹" + price);
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // User input for car details
+        System.out.print("Enter Car Make: ");
+        String make = scanner.nextLine();
+
+        System.out.print("Enter Car Model: ");
+        String model = scanner.nextLine();
+
+        System.out.print("Enter Car Year: ");
+        short year = scanner.nextShort();
+
+        System.out.print("Enter Car Price: ");
+        int price = scanner.nextInt();
+
+        // Create Car object
+        Car car = new Car(make, model, year, price);
+
+        // Display car details
+        car.displayDetails();
+
+        scanner.close();
+    }
+}
