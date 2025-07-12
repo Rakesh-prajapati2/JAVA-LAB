@@ -1,0 +1,45 @@
+import java.util.Random;
+
+// Create a class Rectangle.
+class Rectangle {
+    // The Rectangle class should have two attributes length and width of type int.
+    int length;
+    int width;
+
+    // Create a constructor that accepts length and width as parameters.
+    public Rectangle(int length, int width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    // Area should be calculated as length * width.
+    public int calculateArea() {
+        return length * width;
+    }
+}
+
+public class RectangleComparison {
+    public static void main(String[] args) {
+        Random rand = new Random();
+
+        // Instantiate two Rectangle classes with random values.
+        // Ensure positive dimensions for meaningful area calculation.
+        Rectangle rect1 = new Rectangle(rand.nextInt(50) + 1, rand.nextInt(50) + 1); 
+        Rectangle rect2 = new Rectangle(rand.nextInt(50) + 1, rand.nextInt(50) + 1);
+
+        int area1 = rect1.calculateArea();
+        int area2 = rect2.calculateArea();
+
+        System.out.println("Rectangle 1: Length = " + rect1.length + ", Width = " + rect1.width + ", Area = " + area1);
+        System.out.println("Rectangle 2: Length = " + rect2.length + ", Width = " + rect2.width + ", Area = " + area2);
+
+        // Compare the areas of the two rectangles using the Relational Operator.
+        if (area1 > area2) {
+            System.out.println("Rectangle1 > Rectangle2");
+        } else if (area1 < area2) {
+            System.out.println("Rectangle1 < Rectangle2");
+        } else {
+            System.out.println("They are equal");
+        }
+    }
+}

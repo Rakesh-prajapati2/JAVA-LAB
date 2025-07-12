@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+class BankAccount {
+    private String accountHolderName;
+    private int accountNumber;
+    private int balance;
+
+    // Constructor
+    public BankAccount(String accountHolderName, int accountNumber, int balance) {
+        this.accountHolderName = accountHolderName;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    // Getters
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    // Setters
+    public void setAccountHolderName(String accountHolderName) {
+        this.accountHolderName = accountHolderName;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    // Deposit method
+    public void deposit(int amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Amount Deposited: ₹" + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Withdraw method
+    public void withdraw(int amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Amount Withdrawn: ₹" + amount);
+        } else {
+            System.out.println("Invalid or insufficient balance.");
+        }
+    }
+}
+
+public class BankApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input account details
+        System.out.print("Enter Account Holder Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Account Number: ");
+        int accNumber = sc.nextInt();
+
+        System.out.print("Enter Initial Balance: ₹");
+        int initialBalance = sc.nextInt();
+
+        // Create bank account object
+        BankAccount account = new BankAccount(name, accNumber, initialBalance);
+
+        // Perform deposit
+        System.out.print("Enter amount to deposit: ₹");
+        int depositAmount = sc.nextInt();
+        account.deposit(depositAmount);
+
+        // Perform withdrawal
+        System.out.print("Enter amount to withdraw: ₹");
+        int withdrawAmount = sc.nextInt();
+        account.withdraw(withdrawAmount);
+
+        // Get final balance
+        int finalBalance = account.getBalance();
+        System.out.println("Final Balance: ₹" + finalBalance);
+
+        // Use ternary operator to check minimum balance
+        String status = (finalBalance >= 5000) ? "Minimum Balance Maintained" : "Minimum Balance not Maintained";
+        System.out.println("Status: " + status);
+
+        sc.close();
+    }
+}
